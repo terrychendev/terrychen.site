@@ -8,24 +8,26 @@
 		clientDevice = 'mobile';
 	}
 
-	// Java, Javascript, Node.js, PHP, C#, SQL, jQuery, React, Angular
+	// Java Javascript Node.js PHP C# SQL jQuery React Angular Socket.IO AWS Wowza Twilio
+	// REST Caching Microservices Git UI/UX Responsiveness
 	var workMap = {
-		'wk-modiface' : ['sk-nodejs', 'sk-php', 'sk-javascript', 'sk-sql', 'sk-jquery'],
-		'wk-novantas' : ['sk-java', 'sk-javascript', 'sk-sql', 'sk-angular'],
-		'wk-yeplive' : ['sk-php', 'sk-javascript', 'sk-nodejs', 'sk-sql'],
-		'wk-zulily' : ['sk-java', 'sk-javascript', 'sk-nodejs', 'sk-sql', 'sk-csharp', 'sk-angular'],
-		'wk-interset' : ['sk-javascript', 'sk-nodejs', 'sk-sql', 'sk-jquery'],
+		'wk-modiface' : ['sk-nodejs', 'sk-php', 'sk-javascript', 'sk-sql', 'sk-jquery', 'sk-aws', 'sk-twilio', 'sk-rest', 'sk-caching', 'sk-microservices', 'sk-git', 'sk-uiux', 'sk-responsiveness'],
+		'wk-novantas' : ['sk-java', 'sk-javascript', 'sk-sql', 'sk-angular', 'sk-rest', 'sk-caching', 'sk-microservices', 'sk-git', 'sk-uiux'],
+		'wk-yeplive' : ['sk-php', 'sk-javascript', 'sk-nodejs', 'sk-sql', 'sk-jquery', 'sk-socketio', 'sk-aws', 'sk-wowza', 'sk-rest', 'sk-caching', 'sk-git', 'sk-uiux', 'sk-responsiveness'],
+		'wk-zulily' : ['sk-java', 'sk-javascript', 'sk-nodejs', 'sk-sql', 'sk-csharp', 'sk-angular', 'sk-rest', 'sk-caching', 'sk-microservices', 'sk-git', 'sk-uiux', 'sk-responsiveness'],
+		'wk-interset' : ['sk-javascript', 'sk-nodejs', 'sk-sql', 'sk-jquery', 'sk-aws', 'sk-rest', 'sk-git', 'sk-uiux', 'sk-responsiveness'],
 		'wk-tdsb' : ['sk-javascript', 'sk-jquery'],
 		'wk-blackberry' : [],
 		'wk-tiercon' : [],
 		'wk-teknion' : [],
-		'wk-clubhousegolf' : ['sk-javascript', 'sk-php', 'sk-angular', 'sk-react'],
-		'wk-wheelzo' : ['sk-javascript', 'sk-nodejs', 'sk-jquery']
+		'wk-clubhousegolf' : ['sk-javascript', 'sk-php', 'sk-angular', 'sk-react', 'sk-rest', 'sk-caching', 'sk-git', 'sk-uiux', 'sk-responsiveness', 'sk-sql'],
+		'wk-wheelzo' : ['sk-javascript', 'sk-nodejs', 'sk-jquery', 'sk-rest', 'sk-git', 'sk-sql'],
+		'wk-cubicwork' : ['sk-javascript', 'sk-php', 'sk-jquery', 'sk-sql', 'sk-uiux']
 	}
 
 	var skillMap = {};
 
-	for(workKey in window.workMap){
+	for(var workKey in workMap){
 		workMap[workKey].forEach(function(skillKey, id){
 			if(skillMap[skillKey] && skillMap[skillKey].indexOf(workKey) == -1){
 				skillMap[skillKey].push(workKey);
@@ -39,7 +41,7 @@
 	var $switchWork = $(".switch-wk");
 	var $switchSkill = $(".switch-sk");
 
-	function highlightWorks(ev){
+	function highlightWorks(event){
 		$switchWork.css("opacity", "0.2");
 		$switchSkill.css("opacity", "0.2");
 		$(event.currentTarget).css("opacity", "1");
@@ -82,6 +84,7 @@
 	var $skillbarButtonBorder = $('#skillbarButtonBorder');
 	var $skillbar = $('#skillbar'); 
 	var $experience = $('#experience'); 
+	var $switchTitle = $('#switch-title');
 
 	$(window).scroll(function(e){
 	  var isPositionFixed = ($skillbar.css('position') == 'fixed');
@@ -89,11 +92,13 @@
 	    $skillbar.css({'position': 'fixed', 'top': '0px'});
 	    $skillbarButtonBorder.css('visibility', 'visible');
 	    $experience.css('top', offsetHeight + 'px');
+	    $switchTitle.css('opacity', '1');
 	  }
 	  if($(this).scrollTop() < distance && isPositionFixed){
-	    $skillbar.css({'position': 'static', 'top': '0px'}); 
+	    $skillbar.css({'position': 'relative', 'top': '0px'}); 
 	    $skillbarButtonBorder.css('visibility', 'hidden');
 	    $experience.css('top', '0');
+	    $switchTitle.css('opacity', '0');
 	  } 
 	});
 

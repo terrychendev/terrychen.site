@@ -26,8 +26,18 @@ a.home:hover, a.home{
     cursor: default;
 }
 
+#switch-title{
+	opacity: 0;
+	-webkit-transition: opacity 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: opacity 0.5s;
+}
+
 .skills, .switch-sk{
 	margin-right: 13px;
+}
+
+.h6{
+	margin-bottom: .2rem !important;
 }
 
 #skillbar{
@@ -60,7 +70,7 @@ ul.skills{
 
 
 hr{
-	margin-top:10px;
+	margin-top:0px;
 	margin-bottom: 15px;
 }
 
@@ -94,6 +104,7 @@ div.pdf{
 
 
 @media all and (max-width: 770px) {
+
 	.contact-info{
 		text-align: left !important;
 	}
@@ -105,7 +116,7 @@ div.pdf{
 	}
 }
 
-@media all and (max-width: 400px) {
+@media all and (max-width: 450px) {
 	.contact-info{
 		text-align: left !important;
 	}
